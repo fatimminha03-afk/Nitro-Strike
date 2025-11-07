@@ -1,0 +1,69 @@
+# Function to read a matrix from user
+def input_matrix(rows, cols):
+    matrix = []
+    print(f"Enter elements of {rows}x{cols} matrix row-wise:")
+    for i in range(rows):
+        row = list(map(int, input(f"Row {i+1}: ").split()))
+        matrix.append(row)
+    return matrix
+
+# Function to display a matrix
+def display_matrix(matrix):
+    for row in matrix:
+        print(row)
+
+# Function to add two matrices
+def add_matrices(a, b):
+    rows = len(a)
+    cols = len(a[0])
+    result = [[a[i][j] + b[i][j] for j in range(cols)] for i in range(rows)]
+    return result
+
+# Function to multiply two matrices
+def multiply_matrices(a, b):
+    rows_a = len(a)
+    cols_a = len(a[0])
+    cols_b = len(b[0])
+    # Initialize product matrix with zeros
+    product = [[0 for _ in range(cols_b)] for _ in range(rows_a)]
+
+    for i in range(rows_a):
+        for j in range(cols_b):
+            for k in range(cols_a):
+                product[i][j] += a[i][k] * b[k][j]
+    return product
+
+
+# Main program
+print("Matrix Sum and Product Calculator\n")
+
+# Input dimensions
+r1 = int(input("Enter number of rows in first matrix: "))
+c1 = int(input("Enter number of columns in first matrix: "))
+r2 = int(input("Enter number of rows in second matrix: "))
+c2 = int(input("Enter number of columns in second matrix: "))
+
+# Input matrices
+A = input_matrix(r1, c1)
+B = input_matrix(r2, c2)
+
+print("\nMatrix A:")
+display_matrix(A)
+print("Matrix B:")
+display_matrix(B)
+
+# Check and perform addition
+if r1 == r2 and c1 == c2:
+    print("\nSum of matrices:")
+    sum_matrix = add_matrices(A, B)
+    display_matrix(sum_matrix)
+else:
+    print("\nMatrix addition not possible (different dimensions)")
+
+# Check and perform multiplication
+if c1 == r2:
+    print("\nProduct of matrices:")
+    product_matrix = multiply_matrices(A, B)
+    display_matrix(product_matrix)
+else:
+    print("\nMatrix multiplication not possible (incompatible dimensions)")
