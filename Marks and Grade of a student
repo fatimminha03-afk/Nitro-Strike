@@ -1,0 +1,39 @@
+def calculate_student_performance():
+    try:
+        subject1_marks = float(input("Enter marks for Subject 1 (out of 100): "))
+        subject2_marks = float(input("Enter marks for Subject 2 (out of 100): "))
+        subject3_marks = float(input("Enter marks for Subject 3 (out of 100): "))
+
+        # Validate marks to be within 0 and 100
+        if not (0 <= subject1_marks <= 100 and
+                0 <= subject2_marks <= 100 and
+                0 <= subject3_marks <= 100):
+            print("Error: Marks must be between 0 and 100.")
+            return
+
+        total_marks = subject1_marks + subject2_marks + subject3_marks
+        percentage = (total_marks / 300) * 100
+
+        grade = ""
+        if percentage >= 80:
+            grade = "A"
+        elif 70 <= percentage < 80:
+            grade = "B"
+        elif 60 <= percentage < 70:
+            grade = "C"
+        elif 40 <= percentage < 60:
+            grade = "D"
+        else:
+            grade = "E"
+
+        print(f"\nTotal Marks: {total_marks:.2f}")
+        print(f"Percentage: {percentage:.2f}%")
+        print(f"Grade: {grade}")
+
+    except ValueError:
+        print("Invalid input. Please enter numerical values for marks.")
+
+# Call the function to execute the program
+calculate_student_performance()
+
+         
