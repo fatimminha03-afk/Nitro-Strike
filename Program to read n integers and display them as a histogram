@@ -1,0 +1,14 @@
+# Step 1: Read number of integers
+n = int(input("Enter how many integers you want to input: "))
+
+# Step 2: Read the integers into a list
+numbers = []
+print("Enter the integers:")
+for i in range(n):
+    num = int(input(f"Number {i+1}: "))
+    numbers.append(num)
+
+# Step 3: Display the histogram
+print("\nHistogram:")
+for num in numbers:
+    print(f"{num}: {'*' * num}")
