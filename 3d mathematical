@@ -1,0 +1,102 @@
+import math
+
+PI = math.pi
+
+# 1️⃣ Curve
+def curve():
+    print("\n--- 3D Curve ---")
+    t = float(input("Enter value of parameter t: "))
+    x = t
+    y = t ** 2
+    z = t ** 3
+    print(f"Point on curve at t = {t}: ({x}, {y}, {z})")
+
+# 2️⃣ Sphere
+def sphere():
+    print("\n--- Sphere ---")
+    r = float(input("Enter radius of sphere: "))
+    surface_area = 4 * PI * r ** 2
+    volume = (4/3) * PI * r ** 3
+    print(f"Surface Area = {surface_area:.2f}")
+    print(f"Volume = {volume:.2f}")
+
+# 3️⃣ Cone
+def cone():
+    print("\n--- Cone ---")
+    r = float(input("Enter radius of cone: "))
+    h = float(input("Enter height of cone: "))
+    slant = math.sqrt(r ** 2 + h ** 2)
+    surface_area = PI * r * (r + slant)
+    volume = (PI * r ** 2 * h) / 3
+    print(f"Slant Height = {slant:.2f}")
+    print(f"Surface Area = {surface_area:.2f}")
+    print(f"Volume = {volume:.2f}")
+
+# 4️⃣ Arrow (Cylinder + Cone)
+def arrow():
+    print("\n--- Arrow (Cylinder + Cone) ---")
+    cyl_r = float(input("Enter cylinder radius: "))
+    cyl_h = float(input("Enter cylinder height: "))
+    cone_r = float(input("Enter cone radius: "))
+    cone_h = float(input("Enter cone height: "))
+
+    cyl_volume = PI * cyl_r ** 2 * cyl_h
+    cone_volume = (PI * cone_r ** 2 * cone_h) / 3
+    total_volume = cyl_volume + cone_volume
+    print(f"Total Volume of Arrow = {total_volume:.2f}")
+
+# 5️⃣ Ring (Torus)
+def ring():
+    print("\n--- Ring (Torus) ---")
+    R = float(input("Enter major radius (distance from center): "))
+    r = float(input("Enter minor radius (tube radius): "))
+    surface_area = 4 * PI ** 2 * R * r
+    volume = 2 * PI ** 2 * R * r ** 2
+    print(f"Surface Area = {surface_area:.2f}")
+    print(f"Volume = {volume:.2f}")
+
+# 6️⃣ Cylinder
+def cylinder():
+    print("\n--- Cylinder ---")
+    r = float(input("Enter radius of cylinder: "))
+    h = float(input("Enter height of cylinder: "))
+    surface_area = 2 * PI * r * (r + h)
+    volume = PI * r ** 2 * h
+    print(f"Surface Area = {surface_area:.2f}")
+    print(f"Volume = {volume:.2f}")
+
+# Main Menu
+def main():
+    while True:
+        print("\n===== MENU: 3D Mathematical Object Creator =====")
+        print("1. Curve")
+        print("2. Sphere")
+        print("3. Cone")
+        print("4. Arrow")
+        print("5. Ring (Torus)")
+        print("6. Cylinder")
+        print("7. Exit")
+
+        choice = input("Enter your choice (1-7): ")
+
+        if choice == '1':
+            curve()
+        elif choice == '2':
+            sphere()
+        elif choice == '3':
+            cone()
+        elif choice == '4':
+            arrow()
+        elif choice == '5':
+            ring()
+        elif choice == '6':
+            cylinder()
+        elif choice == '7':
+            print("\nExiting program... Goodbye!")
+            break
+        else:
+            print("Invalid choice! Please enter a number from 1 to 7.")
+
+# Run program
+if __name__ == "__main__":
+    main()
