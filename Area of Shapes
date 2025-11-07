@@ -1,0 +1,16 @@
+Choice = int(input("Enter Your Choice: "))
+if Choice == 1:
+    length = int(input("Enter the value of length: "))
+    Breadth = int(input("Enter the value of breadth: "))
+    area_of_rectangle = (length * Breadth)
+    print(f"Area of rectangle: {area_of_rectangle}")
+elif Choice == 2:
+    Side = int(input("Enter the side: "))
+    area_of_square = (Side * Side)
+    print(f"Area of square: {area_of_square}")
+elif Choice == 3:
+    r = int(input("Enter the radius: "))
+    area_of_circle = (3.14 * r * r)
+    print(f"Area of circle: {area_of_circle}")
+else:
+    print("Your Choice is invalid")
